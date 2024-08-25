@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block body %}
+<div>
+    <h1 class='p-4 text-2xl font-bold'>Bangkok Packages</h1>
+    <p class='p-4'>If you are planning a Bangkok trip, Explore bangkok is the right place to come to. Whatever your
+        travel preference, you will find suitable Bangkok holiday packages here. Whether you are looking for Bangkok
+        packages for a family or a couple, whether you need escorted Bangkok tour packages for your parents or an
+        offbeat Bangkok vacation for yourself, Bangkok can help you sort out your Bangkok trip plan.</p>
+    <div class='p-4 grid md:grid-cols-4 gap-3'>
+        {% for data in data %}
+            <div class="max-w-sm bg-white rounded-lg shadow dark:border-gray-700" data-aos="flip-up">
+                <a href="/packageDetails/{{data.id}}">
+                    <img class="rounded-t-lg object-cover h-60"
+                        src="uploads/{{data.primary_image}}"
+                        alt="" />
+                </a>
+                <div class="p-2">
+                    <a href="/packageDetails/{{data.id}}">
+                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">{{data.name}}</h5>
+                    </a>
+                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{data.short_description}}</p>
+                    <a href="/packageDetails/{{data.id}}"
+                        class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                        Read more
+                        <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                            fill="none" viewBox="0 0 14 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M1 5h12m0 0L9 1m4 4L9 9" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock body %}
