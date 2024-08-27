@@ -17,9 +17,15 @@ import dj_database_url
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-MEDIA_ROOT = BASE_DIR / 'uploads'
-MEDIA_URL = "/uploads/"
+# MEDIA_ROOT  = BASE_DIR / 'uploads'
+# MEDIA_URL = '/uploads/'
 
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads').replace('\\', '/')
+# MEDIA_URL = 'uploads/'
+
+
+MEDIA_URL = '/uploads/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
@@ -28,7 +34,7 @@ MEDIA_URL = "/uploads/"
 SECRET_KEY = 'django-insecure-#15eh))*n=azsrn*f^r$h9i%h9wfek$91-5@ao6k(th!%wsbfw'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -137,13 +143,15 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR,"static"),
-]
+if DEBUG:
+    STATICFILES_DIRS = [
+        os.path.join(BASE_DIR,"static"),
+    ]
 
 if not DEBUG:
     # Tell Django to copy static assets into a path called `staticfiles` (this is specific to Render)
-    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+    STATIC_ROOT = os.path.join(BASE_DIR, 'static')
     # Enable the WhiteNoise storage backend, which compresses static files to reduce disk use
     # and renames the files with unique names for each version to support long-term caching
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+    
