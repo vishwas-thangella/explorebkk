@@ -74,12 +74,12 @@
   <nav class='w-full h-20 fixed top-0 md:top-10 p-4 flex flex-row items-center justify-between z-10'>
     <h1 class='bona-nova-sc-bold md:text-3xl text-white text-xl'>Explore Bangkok</h1>
     <ul class='flex flex-row font-semibold'>
-      <li class='ml-8 text-white cursor-pointer hover:font-bold hover:text-gray-600 bona-nova-sc-bold'>Home</li>
-      <li class='ml-8 text-white cursor-pointer hover:font-bold hover:text-gray-600 bona-nova-sc-bold'>About</li>
+      <a href="/"><li class='ml-8 text-white cursor-pointer hover:font-bold hover:text-gray-600 bona-nova-sc-bold'>Home</li></a>
+     <a href="/about"> <li class='ml-8 text-white cursor-pointer hover:font-bold hover:text-gray-600 bona-nova-sc-bold'>About</li></a>
       <li class='ml-8 text-white cursor-pointer hover:font-bold hover:text-gray-600 bona-nova-sc-bold'>Contact</li>
     </ul>
   </nav>
-  <div class='absolute md:top-80 top-52 md:left-10 left-3 z-10'>
+  <div class='absolute xl:top-80 top-32  md:left-10 left-3 z-10'>
     <h1 class='bona-nova-sc-bold text-2xl'>Surf,</h1>
     <h1 class='bona-nova-sc-bold lg:text-9xl text-white text-6xl md:text-7xl'>BANGKOK !</h1>
     <h1 class='text-white mt-10 md:mt-0'>Bangkok, the dynamic capital of Thailand, offers an array of advantages for
@@ -102,8 +102,8 @@
       <h1 class="font-bold text-white">Scroll down</h1>
     </div>
   </div>
-  <h1 class='text-3xl playwrite-dk-uloopet text-center mt-4'>Bangkok Top Packages</h1>
-  <div class='mt-5 section1 grid md:grid-cols-4 justify-items-center gap-4 md:px-10 mx-auto z-20 p-3'
+  <h1 class='text-3xl playwrite-dk-uloopet text-center mt-4'>Thailand Top Packages</h1>
+  <div class='mt-5 section1 grid md:grid-cols-2 lg:grid-cols-4 justify-items-center gap-4 md:px-10 mx-auto z-20 p-3'
     data-aos="fade-up">
     {% for city in top_packages %}
     <a href="/packageDetails/{{city.id}}" class="z-20">
@@ -157,7 +157,7 @@
   <div class='p-4' data-aos="fade-up">
     <h1 class='text-3xl playwrite-dk-uloopet text-center'>Bangkok tour Packages</h1>
     <hr class='mt-5 w-1/2 mx-auto border-cyan-900' />
-      <div class='mt-10 md:grid flex flex-row overflow-scroll flex-wrap md:grid-cols-4 gap-4 place-items-center'>
+      <div class='mt-10 md:grid md:grid-cols-2 flex flex-row overflow-hidden flex-wrap lg:grid-cols-4 gap-4 place-items-center p-10'>
         {% for data in main_packages %}
         <div class="max-w-sm bg-white rounded-lg shadow dark:border-gray-700 w-full" data-aos="flip-up">
           <a href="/packageDetails/{{data.id}}">

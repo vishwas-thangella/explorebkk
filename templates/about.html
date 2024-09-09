@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<nav class='w-full h-20 fixed top-0 md:top-10 p-4 flex flex-row items-center justify-between z-10 bg-white'>
+    <h1 class='bona-nova-sc-bold md:text-3xl text-black text-xl'>Explore Bangkok</h1>
+    <ul class='flex flex-row font-semibold'>
+      <a href="/"><li class='ml-8 text-black cursor-pointer hover:font-bold hover:text-gray-600 bona-nova-sc-bold'>Home</li></a>
+     <a href="/about"> <li class='ml-8 text-black cursor-pointer hover:font-bold hover:text-gray-600 bona-nova-sc-bold'>About</li></a>
+      <li class='ml-8 text-black cursor-pointer hover:font-bold hover:text-gray-600 bona-nova-sc-bold'>Contact</li>
+    </ul>
+  </nav>
+
+<div class="p-10 md:flex flex-row-reverse mt-20">
+    <div class="pl-5">
+        <h1 class="text-3xl capitalize text-center playwrite-dk-uloopet">about Us</h1>
+        <p class="mt-10 ">Welcome to Explore Bangkok, your trusted partner for unforgettable travel experiences in
+            Bangkok and beyond. With years of expertise in the travel industry, we specialize in creating tailor-made
+            journeys that showcase the rich culture, stunning landscapes, and hidden gems of Thailand. Whether you're
+            looking for a peaceful retreat, an adventurous escape, or a cultural deep-dive, we are here to craft the
+            perfect itinerary for you.</p>
+        <p>Our team of passionate travel experts is dedicated to providing personalized service, ensuring every detail
+            of your trip is carefully curated to exceed your expectations. From luxury accommodations and guided tours
+            to authentic local experiences and seamless transportation, we handle it all so you can focus on creating
+            memories.</p>
+        <p>At Explore Bangkok, we believe that travel is not just about visiting a new place but about immersing
+            yourself in the spirit of a destination. Let us take you on a journey that you will cherish for a lifetime.
+        </p>
+    </div>
+    <div>
+        <img src="https://c1.wallpaperflare.com/preview/500/410/412/buddha-statue-buddhism-stone-figure.jpg" alt="" class="rounded-xl">
+    </div>
+</div>
+
+{% endblock body %}

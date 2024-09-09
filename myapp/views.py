@@ -31,3 +31,7 @@ def PackageDetails(request,id):
         'data':PackageModel.objects.get(id=id)
     }
     return render(request,'packageDetails.html',data)
+
+
+def About(request):
+    return render(request,'about.html')

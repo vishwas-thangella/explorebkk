@@ -34,7 +34,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
 SECRET_KEY = 'django-insecure-#15eh))*n=azsrn*f^r$h9i%h9wfek$91-5@ao6k(th!%wsbfw'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -88,15 +88,15 @@ WSGI_APPLICATION = 'explorebangkok.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': BASE_DIR / 'db.sqlite3',
-    # }
-    'default': dj_database_url.config(
-        # Replace this value with your local database's connection string.
-        default='postgresql://admin:2dhTFPnbCXpFjvbs8KpcygDL5HkTf8uK@dpg-cr5gq85umphs73e47150-a.oregon-postgres.render.com/explorebkkdatabase',
-        conn_max_age=600
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+    # 'default': dj_database_url.config(
+    #     # Replace this value with your local database's connection string.
+    #     default='postgresql://admin:2dhTFPnbCXpFjvbs8KpcygDL5HkTf8uK@dpg-cr5gq85umphs73e47150-a.oregon-postgres.render.com/explorebkkdatabase',
+    #     conn_max_age=600
+    # )
 }
 
 
@@ -137,21 +137,22 @@ USE_TZ = True
 # STATIC_URL = 'static/'
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+if not DEBUG:
+    STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# if DEBUG:
-#     STATICFILES_DIRS = [
-#         os.path.join(BASE_DIR,"static"),
-#     ]
-
-
-# Tell Django to copy static assets into a path called `staticfiles` (this is specific to Render)
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-# Enable the WhiteNoise storage backend, which compresses static files to reduce disk use
-# and renames the files with unique names for each version to support long-term caching
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+if DEBUG:
+    STATICFILES_DIRS = [
+        os.path.join(BASE_DIR,"static"),
+    ]
+else :
+    # Tell Django to copy static assets into a path called `staticfiles` (this is specific to Render)
+    STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+    # Enable the WhiteNoise storage backend, which compresses static files to reduce disk use
+    # and renames the files with unique names for each version to support long-term caching
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
